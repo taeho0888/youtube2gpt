@@ -14,6 +14,11 @@ pip3 install -r requirements.txt
 OPENAI_API_KEY = your openai api key
 ```
 
+## 가상환경 실행
+```bash
+source .venv/bin/activate
+```
+
 ## 실행
 ```bash
 python3 main.py
