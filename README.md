@@ -24,6 +24,6 @@ source .venv/bin/activate
 python3 main.py
 ```
 
-###주의사항
+### 주의사항
 1. 엑셀 `D열`은 유튜브 링크, `E열`은 유튜브 스크립트, `F열`은 GPT 요약, `G열`은 블로그 (TODO)
 2. 엑셀을 저장하고 종료한 뒤 실행 커맨드 입력
