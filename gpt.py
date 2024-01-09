@@ -25,12 +25,13 @@ class GPTChatProcessor:
                         You are a summarizer and I'm a client. 
                         I'll give you the script of a YouTube video, and you should summarize that. 
                         Please summarize the video script and divide it into several paragraphs.
+                        Write it with Korean.
                     """},
                     {"role": "user", "content": f"{script}"}
                 ]
             )
 
-            summary = response['choices'][0]['message']['content']
+            summary = str(response.choices[0].message.content)
             print(summary)
 
             sheet.cell(row=row[0].row, column=output_column, value=summary)
