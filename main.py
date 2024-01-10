@@ -15,7 +15,7 @@ async def main():
 
     # 지피티 클래스 호출 후 서머리 추출
     gpt_processor = GPTChatProcessor(sheet, input_column=5, output_column=6)
-    await gpt_processor.generate_summary()
+    gpt_processor.generate_summary()
 
     # Save changes
     wb.save("youtube.xlsx")
