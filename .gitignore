@@ -7,6 +7,14 @@
 # xls
 *.xlsx
 *.xls
+.DS_Store
+async.py
+sync.py
+response.txt
+yotube.py
+test.py
+stream.py
+streamasync.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
