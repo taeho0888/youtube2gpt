@@ -10,6 +10,8 @@ PROMPT = """
             I'll give you the script of a YouTube video, and you should summarize that. 
             Please summarize the video script and divide it into several paragraphs.
             Please give me a summary of the summary you just sent me by numbering it so that I can see it at a glance.
+            Also, give me an answer that related only to 'back problem' or 'back ache'
+            Finally, I wish to get answers that seemsm to be written by human.
             Write it with Korean.
         """
 
