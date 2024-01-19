@@ -1,7 +1,7 @@
 import asyncio
 from youtube_transcript_api import YouTubeTranscriptApi
 
-MAX_SCRIPT_LENGTH = 2000
+MAX_SCRIPT_LENGTH = 1700
 
 class YouTubeScriptExtractor:
     def __init__(self, sheet, input_column, output_column):
@@ -21,9 +21,15 @@ class YouTubeScriptExtractor:
             loop = asyncio.get_event_loop()
             scripts = await loop.run_in_executor(None, YouTubeTranscriptApi.get_transcript, youtube_id, ['ko'])
             script = " ".join(script["text"] for script in scripts)
-            print(script[:MAX_SCRIPT_LENGTH])
+
+            script_length = len(script)
+            if script_length > MAX_SCRIPT_LENGTH:
+                start_index = max((script_length - MAX_SCRIPT_LENGTH) // 2, 0)
+                end_index = start_index + MAX_SCRIPT_LENGTH
+                return script[start_index:end_index]
             return script[:MAX_SCRIPT_LENGTH]
         except Exception as e:
+            print(e)
             return "[오류] : 스크립트 추출 실패"
 
     async def process_row(self, row):
