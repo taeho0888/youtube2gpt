@@ -29,7 +29,7 @@ class GPTChatProcessor:
         if not script or script.startswith("[오류]"):
             return
 
-        try:
+        try:    
             # 최대 토큰 4,096 = 4,800 character
             response = self.client.chat.completions.create(
                 model="gpt-3.5-turbo",
@@ -40,11 +40,11 @@ class GPTChatProcessor:
                 max_tokens=2000,
                 temperature=1
             )
-            print(response + "\n")
             summary = str(response.choices[0].message.content)
         except Exception as e:
             summary = f"[GPT 오류] : {e}"
-            print(summary)
+        finally:
+            print(summary + "\n")
 
 
         self.sheet.cell(row=row[0].row, column=self.output_column, value=summary)
